@@ -1,0 +1,34 @@
+{% extends "base.html" %} 
+{% load static %}
+
+
+{% block title %} My Blog {% endblock %} 
+
+{% block css_files %}
+<link rel="stylesheet" href="{% static "blog/post.css" %}">
+<link rel="stylesheet" href="{% static "blog/homepage.css" %}">
+{% endblock %}
+{% block content %}
+<section id="welcome">
+    <header>
+        <img src="{% static "blog/images/sai.png" %}" alt="Sai - The Author of this blog" />
+        <h2>SAI KRISHNA'S BLOG</h2>
+    </header>
+    <p>Hey Hey! <b>I am Sai Krishna </b> and I love to blog about anything and everything!</p>
+</section>
+
+<section id="latest-posts">
+    <h2>My latest meditations</h2>
+    <ul>
+        {% for post in posts %}
+            {% include "blog/includes/posts.html" %}
+        {% endfor %}
+    </ul>
+</section>
+
+<section id="about">
+    <h2>What I Do</h2>
+    <p>I love running, meditating, writing poetry and sometimes, maybe very often, hiking!</p>
+    <p>One of my goals for 2025 is to get a job at a top 10 tech company in the world and get my H1B sponsored! Buy a 2bhk apartment and a 70k Merc!</p>
+</section>
+{% endblock %}
